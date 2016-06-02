@@ -41,6 +41,8 @@ RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filenam
 
 RUN composer --version
 
+RUN chown -R codeup /composer
+
 WORKDIR /usr/src/myapp
 
 USER codeup

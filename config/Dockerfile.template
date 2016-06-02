@@ -4,7 +4,7 @@ COPY ./config/group.sh /group.sh
 COPY ./bin/database.php /usr/bin/database
 
 RUN /group.sh
-RUN useradd -ms /bin/bash -g 1000 -u 1000 codeup
+RUN useradd -ms /bin/bash -g {{CODEUP_GROUP}} -u {{CODEUP_USER}} codeup
 RUN mkdir -p /composer/.composer
 
 # Install modules

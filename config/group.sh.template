@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+EXISTS=$(cat /etc/group | grep {{CODEUP_GROUP}} | wc -l)
+
+# Create new group using target GID and add www-data user
+if [ $EXISTS == "0" ]; then
+    groupadd -g {{CODEUP_GROUP}} codeup
+fi

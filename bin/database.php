@@ -17,7 +17,7 @@ try {
     ]);
     $drop = "DROP DATABASE IF EXISTS `$databaseName`";
     $create = "CREATE DATABASE `$databaseName` DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci";
-    $grant = "GRANT ALL PRIVILEGES on `$databaseName`.* TO `$databaseUser`@localhost IDENTIFIED BY '$databasePassword'";
+    $grant = "GRANT ALL PRIVILEGES on `$databaseName`.* TO `$databaseUser`@'%' IDENTIFIED BY '$databasePassword'";
 
     $connection->exec($drop);
     $connection->exec($create);

@@ -11,7 +11,7 @@ try {
         fwrite(STDERR, "Passwords do not match");
         exit(1);
     }
-    $connection = new PDO('mysql:host=localhost', 'root', 'codeup', [
+    $connection = new PDO('mysql:host=codeup_db', 'root', 'codeup', [
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     ]);

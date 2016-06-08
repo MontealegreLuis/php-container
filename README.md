@@ -1,6 +1,8 @@
-# Docker container for PHP
+# Docker container for PHP projects
 
-Container to setup a development environment for projects using PHP and MySQL.
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
+
+Try your PHP + MySQL projects using Docker containers.
 
 ## Installation
 

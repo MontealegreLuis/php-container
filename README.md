@@ -7,7 +7,7 @@ Container to setup a development environment for projects using PHP and MySQL.
 To setup the containers, run the following command:
 
 ```bash
-$ export CODEUP_USER=`id -u $USER` && export CODEUP_GROUP=`id -g $USER` && make install
+$ cp .env.example .env.sh && make install
 ```
 
 ## Usage

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-EXISTS=$(cat /etc/group | grep ${CODEUP_GROUP} | wc -l)
+EXISTS=$(cat /etc/group | grep ${HOST_GROUP_ID} | wc -l)
 
 # Create new group using target GID
 if [ $EXISTS == "0" ]; then
-    groupadd -g ${CODEUP_GROUP} codeup
+    groupadd -g ${HOST_GROUP_ID} ${HOST_USER}
 fi

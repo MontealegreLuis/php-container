@@ -4,13 +4,14 @@ COPY ./config/group.sh /group.sh
 COPY ./bin/database.php /usr/bin/database
 
 # Create custom user and group to match the ones in the host machine
+RUN chmod a+x /group.sh
 RUN /group.sh
-RUN useradd -ms /bin/bash -g ${CODEUP_GROUP} -u ${CODEUP_USER} codeup
+RUN useradd -ms /bin/bash -g ${HOST_USER_ID} -u ${HOST_GROUP_ID} ${HOST_USER}
 RUN mkdir -p /composer/.composer
 RUN mkdir -p /composer/vendor/bin
 
-RUN mv /home/codeup/.bashrc /etc/bashrc
-COPY ./config/.bashrc /home/codeup/.bashrc
+RUN mv /home/${HOST_USER}/.bashrc /etc/bashrc
+COPY ./config/.bashrc /home/${HOST_USER}/.bashrc
 
 # Install modules
 RUN apt-get update && apt-get install -y \
@@ -48,11 +49,11 @@ RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filenam
 
 RUN composer --version
 
-RUN chown -R codeup /composer
+RUN chown -R ${HOST_USER} /composer
 
 WORKDIR /usr/src/myapp
 
-USER codeup
-ENV HOME /home/codeup
+USER ${HOST_USER}
+ENV HOME /home/${HOST_USER}
 
 EXPOSE 8000

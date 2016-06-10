@@ -3,8 +3,11 @@ FROM php:7.0-cli
 COPY ./config/group.sh /group.sh
 COPY ./bin/database.php /usr/bin/database
 
-# Create custom user and group to match the ones in the host machine
+# Add execution permission
 RUN chmod a+x /group.sh
+RUN chmod a+x /usr/bin/database
+
+# Create custom user and group to match the ones in the host machine
 RUN /group.sh
 RUN useradd -ms /bin/bash -g ${HOST_USER_ID} -u ${HOST_GROUP_ID} ${HOST_USER}
 RUN mkdir -p /composer/.composer

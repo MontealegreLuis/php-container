@@ -1,5 +1,5 @@
 web:
-  container_name: codeup_dev
+  container_name: ${CONTAINERS_PREFIX}_dev
   build: .
   ports:
     - "8000:8000"
@@ -8,14 +8,14 @@ web:
   volumes:
     - .:/usr/src/myapp
 data:
-  container_name: codeup_data
+  container_name: ${CONTAINERS_PREFIX}_data
   build: ./data
 db:
   image: mysql:5.7
-  container_name: codeup_db
+  container_name: ${CONTAINERS_PREFIX}_db
   volumes_from:
     - data
   ports:
     - "3306:3306"
   environment:
-    MYSQL_ROOT_PASSWORD: codeup
+    MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}

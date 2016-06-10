@@ -4,12 +4,36 @@
 
 Try your PHP + MySQL projects using Docker containers.
 
+## Configuration
+
+The PHP container will have a user and a group matching your current username,
+user ID and group ID. You can set the password for MySQL's root user, the
+container's hostname, and the prefix to be used for the images and containers.
+Modify the `.env.example` file if you want to adjust those settings.
+
+```bash
+# This is the hostname for the PHP container
+export CONTAINER_HOSTNAME=your_custom_container_hostname
+export CONTAINERS_PREFIX=your_custom_prefix
+# You'll get 3 images: your_custom_prefix/dev, your_custom_prefix/db, and your_custom_prefix/data
+# And 3 containers: your_custom_prefix_dev, your_custom_prefix_db and your_custom_prefix_data
+# This is the password for MySQL's root user
+export DB_ROOT_PASSWORD=your_custom_mysql_password
+```
+
 ## Installation
 
-To setup the containers, run the following command:
+To setup the containers, run the following command, if you want to use the
+default settings:
 
 ```bash
 $ cp .env.example .env.sh && make install
+```
+
+If you created a custom .env.sh from the .env.example file.
+
+```bash
+$ make install
 ```
 
 ## Usage
@@ -46,8 +70,9 @@ If you want to query your database, run the following command (MySQL's container
 should be running):
 
 ```bash
-$ docker exec -it codeup_db bash
+$ docker exec -it <your_db_container_name_here> bash
 ```
 
-From there you can run `mysql -u root -p`, the password for this user is
-`codeup`. Or you can login with any other user created from the PHP container.
+From there you can run `mysql -u root -p`, the password for this user is in the
+`.env.sh` file. Or you can login with any other user created from the PHP
+container.

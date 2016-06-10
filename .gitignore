@@ -1,3 +1,4 @@
 /config/group.sh
+/config/.bashrc
 /Dockerfile
 .env.sh

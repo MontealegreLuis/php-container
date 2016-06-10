@@ -1,4 +1,3 @@
-/config/group.sh
-/config/.bashrc
 /Dockerfile
-.env.sh
+/docker-compose.yml
+/.env.sh

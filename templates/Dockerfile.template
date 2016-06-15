@@ -32,6 +32,10 @@ RUN yes | pecl install xdebug \
     && echo "xdebug.remote_port=9000" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.remote_connect_back=on" >> /usr/local/etc/php/conf.d/xdebug.ini
 
+# Install MySQL's client
+
+RUN apt-get install mysql-client
+
 # Install Composer
 
 # Register the COMPOSER_HOME environment variable

@@ -34,7 +34,7 @@ RUN yes | pecl install xdebug \
 
 # Install MySQL's client
 
-RUN apt-get install mysql-client
+RUN apt-get -y install mysql-client
 
 # Install Composer
 

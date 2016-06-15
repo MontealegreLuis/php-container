@@ -41,7 +41,7 @@ $ make install
 To start working with the container, run the following command:
 
 ```bash
-$ docker-compose run --rm -p 8000:8000 web bash
+$ docker-compose run --rm --service-ports web bash
 ```
 
 Inside your container you can use the following command to create a database:
@@ -64,6 +64,9 @@ $ server
 $ server -t path/to/public/folder
 ```
 
+You can browse your site at [http://localhost/][1]. Press CTRL+C to stop your
+application from the container.
+
 ## Accessing your MySQL server
 
 If you want to query your database, run the following command (MySQL's container
@@ -76,3 +79,5 @@ $ docker exec -it <your_db_container_name_here> bash
 From there you can run `mysql -u root -p`, the password for this user is in the
 `.env.sh` file. Or you can login with any other user created from the PHP
 container.
+
+[1]: http://localhost/

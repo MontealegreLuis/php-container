@@ -5,9 +5,14 @@ echo '================================================================'
 }
 
 # make sure we are on mac
-if [ "$(uname -s)" != "Darwin" ]
-then
+if [ "$(uname -s)" != "Darwin" ]; then
     echo 'This script is for Mac users only.'
+    exit
+fi
+
+# make sure brew is installed
+if [ -z "$(which brew)" ]; then
+    echo 'You must have brew installed to use this script.'
     exit
 fi
 

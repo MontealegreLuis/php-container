@@ -4,6 +4,13 @@ echo " > $@"
 echo '================================================================'
 }
 
+# make sure we are on mac
+if [ "$(uname -s)" != "Darwin" ]
+then
+    echo 'This script is for Mac users only.'
+    exit
+fi
+
 # the Makefile relies on the envsubst command, but it is not installed by
 # default on mac, so we will install it with brew
 heading 'installing command line utils...'

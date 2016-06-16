@@ -8,22 +8,13 @@ Try your PHP + MySQL projects using Docker containers.
 
 ### For Mac users
 
-Install [Docker Machine][2]. Create a Docker VM and connect your shell to it.
+Run the `mac-setup.sh` script and follow the instructions when it finishes running.
 
 ```bash
-$ docker-machine create
-$ eval "$(docker-machine env default)"
+bash mac-setup.sh
 ```
 
-The configuration for the containers is created using [envsubst][3], which is not
-installed by default. You will need to install it with `brew`.
-
-```bash
-brew install gettext
-brew link --force gettext
-```
-
-### Linux and Mac
+### Linux
 
 To setup the containers, run the following command:
 
